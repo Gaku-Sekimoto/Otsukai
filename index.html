@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ff8a5b">
+  <meta name="description" content="数えて選んで届けよう。5歳ごろの子ども向け数あそびアプリ。">
+  <title>おつかい探検隊</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app" class="app-shell">
+    <section id="start-screen" class="screen start-screen" aria-labelledby="app-title">
+      <div class="cloud cloud-one" aria-hidden="true"></div>
+      <div class="cloud cloud-two" aria-hidden="true"></div>
+      <div class="hero-illustration" aria-hidden="true">
+        <span class="sun">☀️</span>
+        <span class="house">🏠</span>
+        <span class="tree">🌳</span>
+        <span class="fox">🦊</span>
+        <span class="basket">🧺</span>
+      </div>
+      <p class="eyebrow">かぞえて・えらんで・とどけよう！</p>
+      <h1 id="app-title">おつかい<br><span>たんけんたい</span></h1>
+      <p class="start-copy">どうぶつの まちで<br>おつかいに ちょうせんしよう！</p>
+      <button id="start-button" class="primary-button jumbo-button" type="button">
+        <span aria-hidden="true">▶</span> はじめる
+      </button>
+      <button id="sound-toggle" class="sound-button" type="button" aria-pressed="true">
+        🔊 おとの せってい
+      </button>
+      <p class="grownup-note">おとなのかたへ：もじは すべて よみあげられます</p>
+    </section>
+
+    <section id="game-screen" class="screen game-screen is-hidden" aria-labelledby="mission-title">
+      <header class="game-header">
+        <button id="home-button" class="round-button" type="button" aria-label="はじめの画面にもどる">⌂</button>
+        <div class="progress-wrap" aria-label="おつかいの進み具合">
+          <span id="progress-label">おつかい 1 / 5</span>
+          <div class="progress-track"><span id="progress-bar"></span></div>
+        </div>
+        <div class="star-count" aria-label="あつめた星"><span>⭐</span><strong id="star-count">0</strong></div>
+      </header>
+
+      <div id="town-strip" class="town-strip" aria-label="育っている町"></div>
+
+      <div class="customer-card">
+        <div id="customer-avatar" class="customer-avatar" aria-hidden="true">🐰</div>
+        <div class="speech-bubble">
+          <p id="customer-name" class="customer-name">うさぎさん</p>
+          <h2 id="mission-title">りんごを 3こ おねがい！</h2>
+          <button id="speak-button" class="speak-button" type="button">🔊 もういちど きく</button>
+        </div>
+      </div>
+
+      <p id="instruction" class="instruction">ほしいものを タッチして、かごに いれよう</p>
+      <div id="shop-grid" class="shop-grid" aria-label="問題の選択肢"></div>
+
+      <section id="maze-area" class="maze-area is-hidden" aria-label="迷路">
+        <div id="maze-grid" class="maze-grid"></div>
+        <div class="maze-controls" aria-label="進む方向">
+          <button class="maze-button up" data-direction="up" type="button" aria-label="上へ進む">▲</button>
+          <button class="maze-button left" data-direction="left" type="button" aria-label="左へ進む">◀</button>
+          <button class="maze-button down" data-direction="down" type="button" aria-label="下へ進む">▼</button>
+          <button class="maze-button right" data-direction="right" type="button" aria-label="右へ進む">▶</button>
+        </div>
+      </section>
+
+      <section class="basket-panel" aria-labelledby="basket-title">
+        <div class="basket-heading">
+          <h3 id="basket-title">🧺 かごの なか</h3>
+          <button id="clear-button" class="text-button" type="button">ぜんぶ もどす</button>
+        </div>
+        <div id="basket-items" class="basket-items" aria-live="polite">
+          <p class="empty-basket">まだ なにも はいっていないよ</p>
+        </div>
+        <button id="deliver-button" class="primary-button deliver-button" type="button" disabled>
+          おとどけする <span aria-hidden="true">🚲</span>
+        </button>
+      </section>
+    </section>
+
+    <section id="result-screen" class="screen result-screen is-hidden" aria-labelledby="result-title">
+      <div id="confetti" class="confetti" aria-hidden="true"></div>
+      <div id="result-avatar" class="result-avatar" aria-hidden="true">🐰</div>
+      <p class="eyebrow">おつかい だいせいこう！</p>
+      <h2 id="result-title">ありがとう！</h2>
+      <p id="result-message" class="result-message">りんごを 3こ とどけられたね</p>
+      <div class="reward-card">
+        <span class="big-star" aria-hidden="true">⭐</span>
+        <p><span id="reward-name">ほしを ひとつ</span><br>まちに ふえたよ！</p>
+      </div>
+      <button id="next-button" class="primary-button jumbo-button" type="button">つぎの おつかいへ</button>
+    </section>
+
+    <section id="complete-screen" class="screen complete-screen is-hidden" aria-labelledby="complete-title">
+      <div id="complete-town" class="town" aria-hidden="true"></div>
+      <p class="eyebrow">ぜんぶ できたね！</p>
+      <h2 id="complete-title">おつかいマスター！</h2>
+      <div class="medal" aria-hidden="true">🏅</div>
+      <p><span id="complete-count">9</span>この おつかいを<br>さいごまで がんばりました</p>
+      <div id="final-stars" class="final-stars" aria-label="あつめた星"></div>
+      <button id="restart-button" class="primary-button jumbo-button" type="button">もういちど あそぶ</button>
+      <button id="back-home-button" class="secondary-button" type="button">はじめの がめんへ</button>
+    </section>
+
+    <div id="feedback" class="feedback is-hidden" role="status" aria-live="assertive"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

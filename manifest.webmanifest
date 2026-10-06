@@ -1,0 +1,13 @@
+{
+  "name": "おつかい探検隊",
+  "short_name": "おつかい探検隊",
+  "description": "数えて選んで届ける、5歳ごろの子ども向け数あそびアプリ",
+  "lang": "ja",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff9eb",
+  "theme_color": "#ff8a5b",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
